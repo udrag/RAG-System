@@ -1,5 +1,6 @@
 ### RAG system for DT news search
 ## Writen and run with Python v3.11.5
+# Warnings have been disabled
 
 import os
 import re
@@ -10,7 +11,11 @@ from dataclasses import dataclass
 from pathlib import Path
 import time
 import textwrap
-
+import warnings
+warnings.filterwarnings("ignore")
+os.environ["TQDM_DISABLE"] = "1"
+os.environ["LANGCHAIN_TRACING_V2"] = "false"
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # Core LangChain imports (try different import paths for compatibility)
 try:
